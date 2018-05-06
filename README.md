@@ -30,21 +30,21 @@ You will need
 1. Open VS command prompt
  (e.g. search in windows menu for `command prompt` -  something like `VS2015 X64 Native Tools Command Prompt` - open this, maybe `x86` if you go for x86 build)
 Navigate to where you've extracted `sqlite-dll-win64-x64-3230100.zip` (or `sqlite-dll-win64-x86-3230100.zip`) files from  within command prompt, e.g.
-```
-D:
-cd Downloads/sqlite-dll-win64-x64-3230100
-```
+    ```
+    D:
+    cd Downloads/sqlite-dll-win64-x64-3230100
+    ```
 
 3. Run (to produce `sqlite3.lib` file from `sqlite3.def` file, supplied with `sqlite3.dll`)
 - for 32-bit DLL (x86) for SQLite (using `VS2015 X86 Native Tools Command Prompt`):
-```
-LIB /MACHINE:X86 /DEF:sqlite3.def
-```
+    ```
+    LIB /MACHINE:X86 /DEF:sqlite3.def
+    ```
 
 - for 64-bit DLL (x64) for SQLite (using `VS2015 X64 Native Tools Command Prompt`):
-```
-LIB /MACHINE:X64 /DEF:sqlite3.def
-```
+    ```
+    LIB /MACHINE:X64 /DEF:sqlite3.def
+    ```
 if everything is ok, you will see that `sqlite3.lib` file has appeared in the folder
 
 Don't close the command prompt yet, if you are going to proceed with `Console build with VS2015 command prompt`
@@ -54,26 +54,26 @@ Don't close the command prompt yet, if you are going to proceed with `Console bu
 
 ### Console build with VS2015 command prompt
 5. Navigate within VS2015 command prompt (opened earlier) to the project's folder, e. g.
-```
-D:
-cd cpp/sqlite_win
-```
+    ```
+    D:
+    cd cpp/sqlite_win
+    ```
 6. Compile app using following command prompt line
-```
-cl /EHsc main.cpp sqlite3.lib /link
-```
+    ```
+    cl /EHsc main.cpp sqlite3.lib /link
+    ```
 
 
 
 ### GUI build in Visual Studio
 5. Go to
-```
-Project > `Your project` Properties > Linker > Input
-```
+    ```
+    Project > `Your project` Properties > Linker > Input
+    ```
 6. Add to `Additional dependencies` path to `.lib` file, e. g.
-```
-D:\vsqlite\sqlite3.lib
-```
+    ```
+    D:\vsqlite\sqlite3.lib
+    ```
 7. Add `sqlite3.h` file to the project, rebuild the solution
 8. Copy `sqlite3.dll` file to the folder where app's executable is placed (e.g. `Debug` folder in the root of the solution, or in project's folder)
 8. Run executable (either from console or using Run Debug in the IDE)
@@ -83,27 +83,27 @@ D:\vsqlite\sqlite3.lib
 # For MinGW/TDM-GCC:
 
 1. Run in command prompt with MinGW/TDM accessible, navigate to the folder with extracted `sqlite-dll-win64-x64-3230100` (or other platforms/versions, depending on your case)
-```
-D:
-cd Downloads/sqlite-dll-win64-x64-3230100
-```
+    ```
+    D:
+    cd Downloads/sqlite-dll-win64-x64-3230100
+    ```
 2. Run (to produce `sqlite3.lib` from `sqlite3.def`)
-```
-dlltool --output-lib sqlite3.lib --dllname sqlite3.dll --input-def sqlite3.def
-```
+    ```
+    dlltool --output-lib sqlite3.lib --dllname sqlite3.dll --input-def sqlite3.def
+    ```
 If everything is ok, file called `sqlite3.lib` will appear in the folder
 
 3. Copy `sqlite3.lib` and `sqlite3.dll` from  `sqlite-dll-win64-x64-3230100` folder, `sqlite3.h` from `sqlite-tools-win32-x86-3230100` folder to your project's folder (you can simplify this process by using your file explorer)
 5. Navigate within command prompt to your pronject's folder e.g.
-```
-cd cpp/sqlite_win
-```
+    ```
+    cd cpp/sqlite_win
+    ```
 
 4. Run (to compile and link, execute the app)
-```
-g++ -o main main.cpp -L. -lsqlite3
-./main
-```
+    ```
+    g++ -o main main.cpp -L. -lsqlite3
+    ./main
+    ```
 
 
 
