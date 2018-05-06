@@ -11,7 +11,7 @@ Suggested set of methods contains using command line tools for both [VC++ 2015](
 1. Clone the repository (or copy `main.cpp` to your machine)
 2. Download and install either
     - Visual Studio 2015 community (with command line tools) or newer (visual studio 2017 community were used for this tutorial)
-    - [MinGW compiler](http://www.mingw.org/) or [TDM-GCC compiler](http://tdm-gcc.tdragon.net/) and add them to your [PATH](https://superuser.com/a/949577) **system variable**
+    - [MinGW compiler](http://www.mingw.org/) or [TDM-GCC compiler](http://tdm-gcc.tdragon.net/) and add to your machine's [PATH](https://superuser.com/a/949577) **system variable**
 3. Download SQLite's [Precompiled Binaries for Windows](http://www.sqlite.org/download.html) and extract them from archives.
 You will need
     - **One of** `sqlite-dll-win32-x86-3230100.zip` **or** `sqlite-dll-win64-x64-3230100.zip` (depending on your platform)- for `sqlit3.dll` and `sqlite3.def` files
@@ -89,7 +89,7 @@ cd Downloads/sqlite-dll-win64-x64-3230100
 ```
 2. Run (to produce `sqlite3.lib` from `sqlite3.def`)
 ```
-dlltool --output-lib gsqlite/sqlite3.lib --dllname sqlite3.dll --input-def sqlite3.def
+dlltool --output-lib sqlite3.lib --dllname sqlite3.dll --input-def sqlite3.def
 ```
 If everything is ok, file called `sqlite3.lib` will appear in the folder
 
@@ -128,6 +128,7 @@ Closed MyDb.db
 Please press any key to exit the program ...
 ```
 
+If you have any issues, look at the examples in either `mingw_sqlite`, `vc_command_prompt_sqlite` or `vs_sqlite/vsqlite` folder
 
 
 # Thanks to
